@@ -11,7 +11,9 @@ pwd	print working directory
 
 ls	list the contents of a directory
 >	-l	gives a list with file details
+>	
 >	-h	makes details easier to understand
+>	
 >	-a	all, including hidden files
 	
 cd	change directory
@@ -22,6 +24,7 @@ mv	move a file or directory (also used to rename)
 cp	copy a file or directory
 rm	remove a file or directory
 >	-r	recursive, include contents of a directory
+>	
 >	-f	force - doesn't ask about each file
 
 rmdir	remove directory (can also just use rm -r)
@@ -44,7 +47,9 @@ nano	simple text editor
 vi	simple text editor
 >	within a vim editor window
 >>	:i	allow insertion of text
+>>	
 >>	:q!	quit (close file) without saving changes
+>>	
 >>	:wq	quit (close file) and save changes
 
 man	shows help for a command (Google is also a great resource for terminal help)
@@ -59,7 +64,9 @@ which 'program'	shows location of a program in path
 
 cut	shows the first x columns of a file. VERY useful for peaking at a large alignment.
 >	e.g., cut -c 1-50 filename
+>	
 >	or to transpose a huge file of columns into rows:
+>	
 >	for I in {1..1000}; do cut –f”$i” filename | paste –s &gt;&gt; newfilename
 
 PATH	an environmental variable that tells the shell where to look for executable programs
