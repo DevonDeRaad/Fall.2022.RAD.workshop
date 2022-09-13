@@ -75,3 +75,7 @@ tab	completes a file/directory names
 alt - tab	switch programs
 
 up arrow	recalls previous command
+
+## Key Slurm commands for working on the cluster
+
+![img](slurm.commands.png "Title")
