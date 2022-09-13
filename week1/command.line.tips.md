@@ -1,16 +1,23 @@
 # Command Line tips
 
 ### Useful commands
+
 ssh	secure shell - login to remote host
+
 scp	secure copy - copy file to/from another computer
 	-r	recursive, include contents of a directory
+	
 pwd	print working directory
+
 ls	list the contents of a directory
 	-l	gives a list with file details
 	-h	makes details easier to understand
 	-a	all, including hidden files
+	
 cd	change directory
+
 mkdir	make a new directory
+
 mv	move a file or directory (also used to rename)
 cp	copy a file or directory
 rm	remove a file or directory
