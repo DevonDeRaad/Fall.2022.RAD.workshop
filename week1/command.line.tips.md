@@ -34,8 +34,7 @@
 |                 	|                                                                                      	| -A        	| append the next # lines after the string                        	|
 
 
-### Text editor
-
+## Text editor
 vi	simple text editor to open files with, e.g., vi file.txt
 >	within a vim editor window
 >>	:i	allow insertion of text
@@ -45,8 +44,7 @@ vi	simple text editor to open files with, e.g., vi file.txt
 >>	:wq	quit (close file) and save changes
 
 
-### capturing outputs
-
+## capturing outputs
 '>'	redirects standard output to a file (will overwrite the file contents)
 
 '>>'	append the results of a command to a file (will add lines at the end of existing file)
@@ -54,8 +52,7 @@ vi	simple text editor to open files with, e.g., vi file.txt
 |	send the results of one command to another command (called “pipe”)
 
 
-### Important characters to know
-
+## Important characters to know
 ~	home directory
 
 /	root directory
@@ -64,15 +61,13 @@ vi	simple text editor to open files with, e.g., vi file.txt
 
 ..	directory above the current (parent directory)
 
-*	wildcard - stands for any character, of any length
-*	
-?	wildcard - stand for any single character
+'*'	called a wildcard, can stand for any character string, of any length
+
+?	another wildcard, stands for any single character
 
 ;	line break
 
-
-### Keys and shortcuts
-
+## Keys and shortcuts
 ctrl - alt - t	new terminal window
 
 tab	completes a file/directory names
