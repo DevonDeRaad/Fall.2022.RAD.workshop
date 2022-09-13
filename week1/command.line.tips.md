@@ -33,6 +33,7 @@
 | grep            	| find lines that contain certain string                                               	| -i        	| case insensitive                                                	|
 |                 	|                                                                                      	| -A        	| append the next # lines after the string                        	|
 
+
 ### Text editor
 
 vi	simple text editor to open files with, e.g., vi file.txt
@@ -43,6 +44,7 @@ vi	simple text editor to open files with, e.g., vi file.txt
 >>	
 >>	:wq	quit (close file) and save changes
 
+
 ### capturing outputs
 
 '>'	redirects standard output to a file (will overwrite the file contents)
@@ -50,6 +52,7 @@ vi	simple text editor to open files with, e.g., vi file.txt
 '>>'	append the results of a command to a file (will add lines at the end of existing file)
 
 |	send the results of one command to another command (called “pipe”)
+
 
 ### Important characters to know
 
@@ -66,6 +69,7 @@ vi	simple text editor to open files with, e.g., vi file.txt
 ?	wildcard - stand for any single character
 
 ;	line break
+
 
 ### Keys and shortcuts
 
