@@ -14,11 +14,11 @@ For connecting to RFS, you will first need to get your access to the server you 
 3. Enter your KU ID and the password you use to connect to the cluster, and click 'connect'
 ![img](passwrd.png "Title")
 4. You should now see the directories of the server you accessed in your Finder window.
-![img](passwrd.png "Title")
+![img](server.png "Title")
 5. Navigate to your file of interest, and then drag it into an open terminal window, so that the full path to this file is printed in your terminal window
-![img](passwrd.png "Title")
+![img](get.path.png "Title")
 6. Construct a command that starts with scp (secure copy), then specifies the full path to your file of interest on RFS, then specifies the full path to the directory on the KUHPCC where you want these data copied to
-![img](passwrd.png "Title")
+![img](scp.png "Title")
 
 ### note
 This process will likely take longer than reasonable on a home internet connection, but works quickly on the KU wifi connection, where speeds should be 10-20Mb/s
