@@ -13,7 +13,7 @@
 > Then, we will go over the details of how to format a submission script to run a job remotely on the KU cluster. There is already an excellent tutorial to get you started [here](https://crc.ku.edu/hpc/how-to#script).
 
 ### Takeaways:
-> The goal for this week is to leave with your demultiplex job running, so that next week you will be ready to start running your individual samples through the Stacks pipeline. A tutorial detailing the steps we learned to demultiplex our data (single-end, single-barcode reads) on the KUHPCC today, is available [here]().
+> The goal for this week is to leave with your demultiplex job running, so that next week you will be ready to start running your individual samples through the Stacks pipeline. A tutorial detailing the steps we learned to demultiplex our data (single-end, single-barcode reads) on the KUHPCC today, is available [here](https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/blob/main/week2/demultiplexing.tutorial.md).
 
 ### Next week:
-> Homework for next week is to read the [Stacks manual](https://catchenlab.life.illinois.edu/stacks/manual/) to get as familiar as possible with the pipeline we will be implementing next week. Please spend as much time as you can familiarizing yourself with this pipeline, understanding it will be key to working with your RAD datasets!
+> Homework for next week is to read the paper [Removing the bad apples: A simple bioinformatic method to improve loci-recovery in de novo RADseq data for non-model organisms](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13562). We will open next week with a discussion of this paper, before diving into using [fastqcR](https://rpkgs.datanovia.com/fastqcr/index.html) for sample quality control.
