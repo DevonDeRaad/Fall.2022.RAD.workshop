@@ -55,7 +55,7 @@ The quickest way to do this is probably to go to the file you made during week 2
 
 We also need to remove samples that fell below our read count threshold, which can be done by simply removing the name of sample that fell below the threshold from this script.
 
-insert photo
+![img](remove.samples.png "Title")
 
 ### Step 2:
 remember our file tree currently looks like:
