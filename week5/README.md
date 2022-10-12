@@ -118,8 +118,28 @@ But first, download the SplitsTree4 (current working version) version appropriat
 
 Now, open SplitsTree4 and in the header tab select file > open, and then navigate to the .txt output file from the previous chunk. Double click on your text file and an unrooted 'neighbor-net' (type of phylogenetic network) will be automatically generated. Check all of the tips against their species ID's and sampling localities and make sure everything is making sense to you!
 
+### Calculate Fst
+~~~
+```{r}
+#read in sample sheet
+samps<-read.csv("~/Desktop/phil.preliminary/dicaeum.sampling.csv")
+samps<-samps[samps$ID %in% colnames(v@gt),]
 
+#investigate how divergent pops are using Fst
+gen@pop<-as.factor(samps$Taxa)
+#calc pairwise Fst
+di.heat<-stamppFst(gen)
+colnames(di.heat)<-rownames(di.heat)
+di.heat <- reshape::melt(di.heat)
 
+#plot as heatmap
+ggplot(data = di.heat, aes(x=X1, y=X2, fill=value)) + 
+  geom_tile()+
+  theme_minimal()+
+  scale_fill_gradient2(low = "white", high = "red", space = "Lab", name="Fst") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+~~~
 
 
 ### Bonus: making a PCA
@@ -142,7 +162,5 @@ assess_missing_data_pca(v, popmap = pops, clustering = FALSE)
 ~~~
 
 As you can see, you must assign samples to sensible populations in order to get much out of a clustering analysis
-
-
 
 If you'd like to see the preliminary analyses I did on my dataset, you can view the code and results as a .html report (viewable in any web browser, or hostable on websites, GitHub repositories, etc.) here: xxx
