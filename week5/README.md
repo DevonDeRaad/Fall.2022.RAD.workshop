@@ -1,9 +1,10 @@
 # Preliminary pop-gen analyses
 ### Last week:
-> Last week we ran the Stacks pipeline for denovo assemble, align, and call SNPs from our RAD loci. As a refresher, this process is detailed in the following diagram:
+Last week we ran the Stacks pipeline for denovo assemble, align, and call SNPs from our RAD loci. As a refresher, this process is detailed in the following diagram:
+
 ![img](stacks.diagram.png "Title")
 
-> For our final step, we used the Stacks 'populations' module to output all called SNPs as a completely unfiltered variant call format (VCF) file using the following syntax:
+For our final step, we used the Stacks 'populations' module to output all called SNPs as a completely unfiltered variant call format (VCF) file using the following syntax:
 ```
 ## Run populations completely unfiltered and output unfiltered vcf, we will do filtering using the SNPfiltR package
 /home/d669d153/work/stacks-2.41/populations -P stacks.prelim -M pipeline_popmap.txt --vcf -t 15
