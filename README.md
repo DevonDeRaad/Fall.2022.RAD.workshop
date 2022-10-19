@@ -12,7 +12,7 @@ This repository will hold code and general information for how to analyze a RADs
 > Demultiplexing our raw sequence data into a separate .fastq.gz file for each individual sample, and submitting our first jobs to the KUHPCC slurm manager.
 
 ### [Week 3](https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week3):
-> Sample quality control (QC) using the R package [fastqcR](https://github.com/kassambara/fastqcr). We will assess the quality and amount of sequence data in each sample and immediately remove samples that have very low numbers of raw reads, i.e., (bad apples)[https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13562].
+> Sample quality control (QC) using the R package [fastqcR](https://github.com/kassambara/fastqcr). We will assess the quality and amount of sequence data in each sample and immediately remove samples that have very low numbers of raw reads, i.e., [bad apples](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13562).
 
 ### [Week 4](https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week4):
 > We will run through the entire [Stacks](https://catchenlab.life.illinois.edu/stacks/) pipeline with default parameters to generate a preliminary SNP dataset.
