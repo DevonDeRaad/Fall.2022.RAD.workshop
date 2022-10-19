@@ -1,9 +1,9 @@
 # Optimizing denovo Stacks assembly parameters
 ### Last week:
-Last week we created a phylogenetic network to ensure that sample clustering patterns make sense, and we aren't dealing with obvious issues of mis-identification, contamination, incorrect bar-code specifications, etc. Now you should have a set of samples that you feel confident in using to optimize the parameter settings for (Stacks)[https://catchenlab.life.illinois.edu/stacks/] denovo assembly.
+Last week we created a phylogenetic network to ensure that sample clustering patterns make sense, and we aren't dealing with obvious issues of mis-identification, contamination, incorrect bar-code specifications, etc. Now you should have a set of samples that you feel confident in using to optimize the parameter settings for [Stacks](https://catchenlab.life.illinois.edu/stacks/) denovo assembly.
 
 ### This week:
-We are eventually going to optimize three parameters used during the (Stacks)[https://catchenlab.life.illinois.edu/stacks/] denovo assembly process. Those are:
+We are eventually going to optimize three parameters used during the [Stacks](https://catchenlab.life.illinois.edu/stacks/) denovo assembly process. Those are:
 
 #### 'm'
 > Minimum number of raw reads required to form a stack, i.e., a putative allele
@@ -14,9 +14,9 @@ We are eventually going to optimize three parameters used during the (Stacks)[ht
 #### 'n'
 > Number of mismatches allowed between stacks, i.e., putative loci, during construction of the catalog
 
-For each of these parameters we will iterate over a range of potential values, and then determine the optimal value based on the 'R80' cutoff, i.e., the value that returns the greatest number of polymorphic loci at an 80% completeness threshold. The exact values to iterate over and the designation of this 'R80' cutoff come from the paper (Lost in Parameter Space)[https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12775].
+For each of these parameters we will iterate over a range of potential values, and then determine the optimal value based on the 'R80' cutoff, i.e., the value that returns the greatest number of polymorphic loci at an 80% completeness threshold. The exact values to iterate over and the designation of this 'R80' cutoff come from the paper [Lost in Parameter Space](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12775).
 
-Today we will use the (RADStackshelpR)[https://github.com/DevonDeRaad/RADstackshelpR] R package to set up our initial optimization runs for the parameter 'm'. The package README includes a link to an example bash script for setting up these optimization runs. If you are struggling with setting up these runs or any of the optimization details, I highly suggest following the README or vignettes (on the pkgdown site) for (RADStackshelpR)[https://github.com/DevonDeRaad/RADstackshelpR].
+Today we will use the [RADStackshelpR](https://github.com/DevonDeRaad/RADstackshelpR) R package to set up our initial optimization runs for the parameter 'm'. The package README includes a link to an example bash script for setting up these optimization runs. If you are struggling with setting up these runs or any of the optimization details, I highly suggest following the README or vignettes (on the pkgdown site) for [RADStackshelpR](https://github.com/DevonDeRaad/RADstackshelpR).
 
 You will need to customize the following script to fit your dataset, and optimize the 'm' parameter. Begin by copying the following into a text editor of your choice:
 ```
@@ -149,5 +149,5 @@ home
 In each of these newly created directories, is a file named 'populations.snps.vcf' which we will use to determine the appropriate 'R80' cutoff for 'm' in your dataset.
 
 ### Next Week
-Please read the paper (Lost in Parameter Space)[https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12775] before our meeting next week, to further familiarize yourself with the importance of optimizing these denovo parameter settings.
+Please read the paper [Lost in Parameter Space](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12775) before our meeting next week, to further familiarize yourself with the importance of optimizing these denovo parameter settings.
 
