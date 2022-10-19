@@ -1,4 +1,4 @@
-# Optimizing denovo Stacks assembly parameters
+# Optimizing denovo Stacks assembly parameter 'm'
 ### Last week:
 Last week we created a phylogenetic network to ensure that sample clustering patterns make sense, and we aren't dealing with obvious issues of mis-identification, contamination, incorrect bar-code specifications, etc. Now you should have a set of samples that you feel confident in using to optimize the parameter settings for [Stacks](https://catchenlab.life.illinois.edu/stacks/) denovo assembly.
 
