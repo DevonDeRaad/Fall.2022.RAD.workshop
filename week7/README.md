@@ -98,7 +98,7 @@ sample5"
 for i in {1..8}
 do
 #create a directory to hold this unique iteration:
-mkdir stacks_m$i
+mkdir stacks_bigM$i
 #run ustacks with m equal to the optimized value, and 
 id=1
 for sample in $files
@@ -107,25 +107,26 @@ do
     let "id+=1"
 done
 ## Run cstacks to compile stacks between samples. Popmap is a file in working directory called 'pipeline_popmap.txt'
-/home/d669d153/work/stacks-2.41/cstacks -P stacks_m$i -M pipeline_popmap.txt -p 15
+/home/d669d153/work/stacks-2.41/cstacks -P stacks_bigM$i -M pipeline_popmap.txt -p 15
 ## Run sstacks. Match all samples supplied in the population map against the catalog.
-/home/d669d153/work/stacks-2.41/sstacks -P stacks_m$i -M pipeline_popmap.txt -p 15
+/home/d669d153/work/stacks-2.41/sstacks -P stacks_bigM$i -M pipeline_popmap.txt -p 15
 ## Run tsv2bam to transpose the data so it is stored by locus, instead of by sample.
-/home/d669d153/work/stacks-2.41/tsv2bam -P stacks_m$i -M pipeline_popmap.txt -t 15
+/home/d669d153/work/stacks-2.41/tsv2bam -P stacks_bigM$i -M pipeline_popmap.txt -t 15
 ## Run gstacks: build a paired-end contig from the metapopulation data (if paired-reads provided),
 ## align reads per sample, call variant sites in the population, genotypes in each individual.
-/home/d669d153/work/stacks-2.41/gstacks -P stacks_m$i -M pipeline_popmap.txt -t 15
+/home/d669d153/work/stacks-2.41/gstacks -P stacks_bigM$i -M pipeline_popmap.txt -t 15
 ## Run populations completely unfiltered and output unfiltered vcf, for input to the RADstackshelpR package
-/home/d669d153/work/stacks-2.41/populations -P stacks_m$i -M pipeline_popmap.txt --vcf -t 15
+/home/d669d153/work/stacks-2.41/populations -P stacks_bigM$i -M pipeline_popmap.txt --vcf -t 15
 done
 ```
 
 Things you will need to customize on this script:
 1. Customize the header, so that this job runs in your project directory, one level above your 'fastq' directory
 2. Customize the sample names assigned to the variable $file. I suggest simply copying and pasting your list of samples from last week (the included samples should not change between optimization steps).
+3. The value of 'm' needs to be set equal to the optimal value that you determined using the RADstackshelpR package.
 
 ### Note
-> The file 'pipeline_popmap.txt' should already be inside your project directory, and should not need to be modified.
+> The file 'pipeline_popmap.txt' should already be inside your project directory from optimizing 'm' last week, and should not need to be modified.
 
 Now we will follow the same steps as before to move this job script onto the cluster:
 > Move into your project directory
