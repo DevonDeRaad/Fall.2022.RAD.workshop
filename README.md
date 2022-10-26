@@ -38,5 +38,5 @@ This repository will hold code and general information for how to analyze a RADs
 ### [Week 11](https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week11):
 > Tutorials on pop-gen and phylogenetic analyses that can give insight into the interesting/surprising aspects of your dataset, and help you create publication quality figures.
 
-### [Week 12](https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week12):
+### Week 12:
 > Everyone will give a 10 minute presentation detailing the progress they have made on their system, including details like optimal assembly parameters, optimal filtering parameters, and what evolutionary details you find most interesting and will highlight in your eventual publication.
