@@ -43,35 +43,29 @@ cp stacks_bigM8/populations.snps.vcf ./bigM8.vcf
 
 Now copy these vcf files into your project directory on your local machine using a command like the following:
 ```
-scp -r username@hpc.crc.ku.edu:/home/username/work/project.directory/*.vcf /Users/username/Desktop/project.directory/
+scp -r username@hpc.crc.ku.edu:/home/username/work/project.directory/bigM* /Users/username/Desktop/project.directory/
 ```
 
-Now we will use commands from the [RADStackshelpR](https://github.com/DevonDeRaad/RADstackshelpR) to simply determine what the optimal 'm' value is for our dataset. To begin, open Rstudio, and in the header tab select file > new file > Rmarkdown. In your new Rmarkdown file, add your name as author, and give this analysis an informative title, in my case, 'Parameter optimization for denovo Stacks assembly of Philippines Dicaeum RAD data'. Now delete all of the generic recommended text, i.e., lines 8 and below. In it's place, copy the following code:
+Now we will use commands from the [RADStackshelpR](https://github.com/DevonDeRaad/RADstackshelpR) to determine what the optimal 'M' value is for our dataset. Open your Rmarkdown script from last week, and copy in the following code chunk below your chunks from last week:
 ~~~
-### Install and load packages
+### Optimize 'M'
 ```{r}
-install.packages("RADstackshelpR")
-library(RADstackshelpR)
-```
-
-### Optimize 'm'
-```{r}
-#optimize_m function will generate summary stats on your 5 iterative runs
+#optimize_bigM function will generate summary stats on your 5 iterative runs
 #input can be full path to each file, or just the file name if the vcf files are in your working directory
-m.out<-optimize_m(m3="/Users/username/Desktop/philippines.rad/m3.vcf",
-           m4="/Users/username/Desktop/philippines.rad/m4.vcf",
-           m5="/Users/username/Desktop/philippines.rad/m5.vcf",
-           m6="/Users/username/Desktop/philippines.rad/m6.vcf",
-           m7="/Users/username/Desktop/philippines.rad/m7.vcf")
+m.out<-optimize_bigM(M1="/Users/username/Desktop/philippines.rad/bigM1.vcf",
+           M2="/Users/username/Desktop/philippines.rad/bigM2.vcf",
+           M3="/Users/username/Desktop/philippines.rad/bigM3.vcf",
+           M4="/Users/username/Desktop/philippines.rad/bigM4.vcf",
+           M5="/Users/username/Desktop/philippines.rad/bigM5.vcf",
+           M6="/Users/username/Desktop/philippines.rad/bigM6.vcf",
+           M7="/Users/username/Desktop/philippines.rad/bigM7.vcf",
+           M8="/Users/username/Desktop/philippines.rad/bigM8.vcf")
            
-#visualize depth of coverage
-vis_depth(output = m.out)
+#use this function to visualize the effect of varying 'M' on the number of SNPs retained
+vis_snps(output = M.out, stacks_param = "M")
 
-#visualize the effect of varying m on the number of SNPs retained
-vis_snps(output = m.out, stacks_param = "m")
-
-#visualize the effect of varying m on the number of loci retained
-vis_loci(output = m.out, stacks_param = "m")
+#visualize the effect of varying 'M' on the number of polymorphic loci retained
+vis_loci(output = M.out, stacks_param = "M")
 ```
 ~~~
 
@@ -79,15 +73,15 @@ You will only need to customize the full path specifying where on your local mac
 
 You should end up with an image like this:
 
-![example 'm' optimization](https://github.com/DevonDeRaad/RADstackshelpR/blob/master/man/figures/unnamed-chunk-5-3.png)
+![example 'M' optimization](https://github.com/DevonDeRaad/RADstackshelpR/blob/master/man/figures/unnamed-chunk-7-2.png)
 
-The red asterisk here lets you know that the optimal 'm' value for this dataset is 3.
+The red asterisk here lets you know that the optimal 'M' value for this dataset is 2.
 
-Now we will start optimizing 'M', this time by running 8 iterations (M=1:8), while setting 'm' to its optimized value. Begin by copying the following into your text editor:
+Now we will start optimizing 'n', this time by running 3 iterations (n=M-1,M,M+1), while setting 'm' and 'M' to their optimized values. Begin by copying the following into your text editor:
 ```
 #!/bin/sh
 #
-#SBATCH --job-name=optimize.M                           #Job Name
+#SBATCH --job-name=optimize.n                           #Job Name
 #SBATCH --nodes=1                                       #Request number of nodes
 #SBATCH --cpus-per-task=15                              #CPU allocation per Task
 #SBATCH --partition=bi                                  #Name of the Slurm partition used
@@ -109,35 +103,35 @@ sample5"
 for i in {1..8}
 do
 #create a directory to hold this unique iteration:
-mkdir stacks_bigM$i
+mkdir stacks_n$i
 #run ustacks with m equal to the optimized value, and 
 id=1
 for sample in $files
 do
-    /home/path/to/stacks-2.41/ustacks -f fastq/${sample}.fq.gz -o stacks_bigM$i -i $id -m X -M $i -p 15
+    /home/path/to/stacks-2.41/ustacks -f fastq/${sample}.fq.gz -o stacks_n$i -i $id -m X -M X -p 15
     let "id+=1"
 done
 ## Run cstacks to compile stacks between samples. Popmap is a file in working directory called 'pipeline_popmap.txt'
-/home/d669d153/work/stacks-2.41/cstacks -P stacks_bigM$i -M pipeline_popmap.txt -p 15
+/home/d669d153/work/stacks-2.41/cstacks -n $i -P stacks_n$i -M pipeline_popmap.txt -p 15
 ## Run sstacks. Match all samples supplied in the population map against the catalog.
-/home/d669d153/work/stacks-2.41/sstacks -P stacks_bigM$i -M pipeline_popmap.txt -p 15
+/home/d669d153/work/stacks-2.41/sstacks -P stacks_n$i -M pipeline_popmap.txt -p 15
 ## Run tsv2bam to transpose the data so it is stored by locus, instead of by sample.
-/home/d669d153/work/stacks-2.41/tsv2bam -P stacks_bigM$i -M pipeline_popmap.txt -t 15
+/home/d669d153/work/stacks-2.41/tsv2bam -P stacks_n$i -M pipeline_popmap.txt -t 15
 ## Run gstacks: build a paired-end contig from the metapopulation data (if paired-reads provided),
 ## align reads per sample, call variant sites in the population, genotypes in each individual.
-/home/d669d153/work/stacks-2.41/gstacks -P stacks_bigM$i -M pipeline_popmap.txt -t 15
+/home/d669d153/work/stacks-2.41/gstacks -P stacks_n$i -M pipeline_popmap.txt -t 15
 ## Run populations completely unfiltered and output unfiltered vcf, for input to the RADstackshelpR package
-/home/d669d153/work/stacks-2.41/populations -P stacks_bigM$i -M pipeline_popmap.txt --vcf -t 15
+/home/d669d153/work/stacks-2.41/populations -P stacks_n$i -M pipeline_popmap.txt --vcf -t 15
 done
 ```
 
 Things you will need to customize on this script:
 1. Customize the header, so that this job runs in your project directory, one level above your 'fastq' directory
 2. Customize the sample names assigned to the variable $file. I suggest simply copying and pasting your list of samples from last week (the included samples should not change between optimization steps).
-3. The value of 'm' needs to be set equal to the optimal value that you determined using the RADstackshelpR package.
+3. The values of 'm' and 'M' needs to be set equal to the optimal values that you determined using the RADstackshelpR package.
 
 ### Note
-> The file 'pipeline_popmap.txt' should already be inside your project directory from optimizing 'm' last week, and should not need to be modified.
+> The file 'pipeline_popmap.txt' should already be inside your project directory from optimizing 'M' last week, and should not need to be modified.
 
 Now we will follow the same steps as before to move this job script onto the cluster:
 > Move into your project directory
@@ -154,11 +148,19 @@ home
               |_stacks_m5
               |_stacks_m6
               |_stacks_m7
+              |_stacks_bigM1
+              |_stacks_bigM2
+              |_stacks_bigM3
+              |_stacks_bigM4
+              |_stacks_bigM5
+              |_stacks_bigM6
+              |_stacks_bigM7
+              |_stacks_bigM8
 ```
 
-> Open a new, blank text file and call it 'optimize.bigM.sh', using the following command:
+> Open a new, blank text file and call it 'optimize.n.sh', using the following command:
 ```
-vi optimize.bigM.sh
+vi optimize.n.sh
 ```
 
 > Follow these steps to paste in the script and save the file
@@ -172,7 +174,7 @@ type ':wq' and hit enter to save and close the file
 > Now submit your job script and ensure that it begins running:
 ```
 #submit job
-sbatch optimize.bigM.sh
+sbatch optimize.n.sh
 #check your running jobs
 squeue -u *your username*
 #list the files in your working directory
