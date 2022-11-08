@@ -52,7 +52,7 @@ Now we will use commands from the [RADStackshelpR](https://github.com/DevonDeRaa
 ```{r}
 #optimize_bigM function will generate summary stats on your 5 iterative runs
 #input can be full path to each file, or just the file name if the vcf files are in your working directory
-m.out<-optimize_bigM(M1="/Users/username/Desktop/philippines.rad/bigM1.vcf",
+bigM.out<-optimize_bigM(M1="/Users/username/Desktop/philippines.rad/bigM1.vcf",
            M2="/Users/username/Desktop/philippines.rad/bigM2.vcf",
            M3="/Users/username/Desktop/philippines.rad/bigM3.vcf",
            M4="/Users/username/Desktop/philippines.rad/bigM4.vcf",
@@ -62,10 +62,10 @@ m.out<-optimize_bigM(M1="/Users/username/Desktop/philippines.rad/bigM1.vcf",
            M8="/Users/username/Desktop/philippines.rad/bigM8.vcf")
            
 #use this function to visualize the effect of varying 'M' on the number of SNPs retained
-vis_snps(output = M.out, stacks_param = "M")
+vis_snps(output = bigM.out, stacks_param = "M")
 
 #visualize the effect of varying 'M' on the number of polymorphic loci retained
-vis_loci(output = M.out, stacks_param = "M")
+vis_loci(output = bigM.out, stacks_param = "M")
 ```
 ~~~
 
