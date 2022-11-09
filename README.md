@@ -1,8 +1,43 @@
 # Fall.2022.RAD.workshop
 
-This repository will hold code and general information for how to analyze a RADseq dataset on the KU high performance computing cluster. Each week we will meet and work together to progress through the pipeline, starting the semester with raw sequence data and hopefully ending with population genetic analyses and exciting new knowledge about the evolutionary history of some of our favorite organisms.
+This repository will hold code and general information for how to analyze a RADseq dataset on the KU high performance computing cluster. Each week we will meet and work together to progress through the pipeline, starting the semester with raw sequence data and hopefully ending with population genetic analyses and exciting new knowledge about the evolutionary history of some of our favorite organisms. Even if you're not part of the working group that meets each week, you should be able to follow the flowchart below, clicking on each box for detailed instructions on each step in the process.
 
-## Semester Schedule
+## Flowchart for working through a RAD dataset
+
+```mermaid
+graph TD
+id1(Start) -- week 1 --> a[raw illumina data]
+style id1 fill:#6666FF,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+a -- week 2 --> b[demultiplex]
+b -- week 3 --> c[fastqcR]
+c -- week 4 --> d[Stacks preliminary run with default parameters]
+d -- week 5 --> e[drop poor quality/contaminated samples]
+e -. reference aligned loci .-> f[quality filter with SNPfiltR]
+e -- de novo assembled loci --> g[de novo assembly parameter optimization]
+g -- week 6 --> h[optimize m]
+h -- week 7 --> i[optimize M]
+i -- week 8 --> j[optimize n]
+j -- week 9 --> f
+f --> k[filtered SNP dataset]
+k -- week 10 --> p[write detailed methods section]
+p --> k
+k -- week 11 --> m[pop-gen analyses]
+linkStyle 5 stroke-width:2px,fill:none,color:red;
+linkStyle 6 stroke-width:2px,fill:none,color:red;
+click a "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week1" _blank
+click b "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week2" _blank
+click c "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week3" _blank
+click d "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week4" _blank
+click e "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week5" _blank
+click f "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week9" _blank
+click h "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week6" _blank
+click i "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week7" _blank
+click j "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week8" _blank
+click p "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week10" _blank
+click m "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week11" _blank
+```
+
+## Detailed semester schedule
 > You can access the detailed information you will need to follow along with your own dataset each week by clicking on the header for the given week.
 
 ### [Week 1](https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week1):
