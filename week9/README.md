@@ -78,3 +78,20 @@ Now we will filter our SNP dataset for quality. I have written the R package [SN
 Today, we will basically just follow the RADseq SNP filtering vignette from the SNPfiltR package, found [here](https://devonderaad.github.io/SNPfiltR/articles/scrub-jay-RADseq-vignette.html). The steps in the tutorial should be somewhat familiar to you because we used some of these commands a few weeks ago when we investigated our preliminary dataset. I suggest following all of the filtering steps outlined in the vignette, but do be aware that optimal parameter settings and filter implementations will always be dataset specific. The most important thing is getting a set of SNPs that you trust, that you can defend to reviewers. Beyond that, if reviewers/readers can follow your filtering process (which they should be able to if you follow the tutorial, comment your code, and knit to an .html) then you are doing reproducible science, and people in the future (including yourself) can come back to your work and try to verify your results, or test the effects of varying your filtering parameters to see how robust your results are (this is a good thing).
 
 I recommend opening a new Rmarkdown file, and copying in the code chunks from the vignette one chunk at a time, each time customizing the syntax to work with your dataset, and testing different thresholds using the interactive visualizations. Don't forget to write your filtered vcf file to your disk at the end of the script, so that you have your filtered SNP dataset saved for downstream analyses!
+
+```mermaid
+graph TD
+a[raw Illumina data]-->b[demultiplex]
+demultiplex-->fastqcR
+fastqcR-->b[Stacks preliminary run with default parameters]
+b[Stacks preliminary run with default parameters]-->c[drop poor quality/contaminated samples]
+c[drop poor quality/contaminated samples] -- reference aligned loci --> d[quality filter with SNPfiltR]
+d[quality filter with SNPfiltR] --> f[filtered SNP dataset ready for downstream analyses]
+c[drop poor quality/contaminated samples] -- de novo assembled loci --> g[optimize m]
+g[optimize m] --> h[optimize M]
+h[optimize M] --> i[optimize n]
+i[optimize n] --> d[quality filter with SNPfiltR]
+click A "http://www.github.com"
+click B "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week1" _blank
+click C "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week2"
+```
