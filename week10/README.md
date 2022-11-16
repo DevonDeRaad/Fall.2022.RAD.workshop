@@ -21,7 +21,7 @@ For sequencing you will want to have details like
 ### De novo assembly
 You will want to include details of the parameter optimization protocol that you followed, stating the specific optimized parameter values for your dataset. For instance "We varied three Stacks parameters crucial for denovo assembly of RAD loci following the recommendations of Paris et. al (2017). Specifically, we varied m from 3-7, M from 1-8, and n from M-1, M, and M+1, each time choosing the optimal value based on the 'R80' cutoff (i.e., the parameter value that results in the greatest number of polymorphic loci reaching an 80% completeness threshold)."
 
-### Qaulity filtering
+### Quality filtering
 You will want to detail the individual choices that you made in quality filtering your optimized SNP dataset. In particular, you will want to include the thresholds you set for minimum per gentoype depth of coverage, genotype quality, per SNP maximum depth, allele balance, per sample completeness, per SNP completeness, and minor allele count. Make sure you report the number of individual samples and SNPs you retained in your filtered SNP dataset, and your distance thinned (1 SNP per locus) dataset.
 
 ### Note
