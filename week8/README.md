@@ -100,7 +100,7 @@ sample5"
 # -m — Minimum depth of coverage required to create a stack (default 3).
 #here, we will vary m from 3-7, and leave all other paramaters default
 
-for i in {1..8}
+for i in {X..X}
 do
 #create a directory to hold this unique iteration:
 mkdir stacks_n$i
@@ -128,7 +128,8 @@ done
 Things you will need to customize on this script:
 1. Customize the header, so that this job runs in your project directory, one level above your 'fastq' directory
 2. Customize the sample names assigned to the variable $file. I suggest simply copying and pasting your list of samples from last week (the included samples should not change between optimization steps).
-3. The values of 'm' and 'M' needs to be set equal to the optimal values that you determined using the RADstackshelpR package.
+3. Customize the loop so that it iterates over the values M-1, M, and M+1 (i.e., if M = 5 for your dataset, the for loop should begin 'for i in {4..6}')
+4. The values of 'm' and 'M' needs to be set equal to the optimal values that you determined using the RADstackshelpR package.
 
 ### Note
 > The file 'pipeline_popmap.txt' should already be inside your project directory from optimizing 'M' last week, and should not need to be modified.
