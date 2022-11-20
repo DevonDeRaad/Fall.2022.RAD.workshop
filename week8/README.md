@@ -108,7 +108,7 @@ mkdir stacks_n$i
 id=1
 for sample in $files
 do
-    /home/path/to/stacks-2.41/ustacks -f fastq/${sample}.fq.gz -o stacks_n$i -i $id -m X -M X -p 15
+    /home/d669d153/work/stacks-2.41/ustacks -f fastq/${sample}.fq.gz -o stacks_n$i -i $id -m X -M X -p 15
     let "id+=1"
 done
 ## Run cstacks to compile stacks between samples. Popmap is a file in working directory called 'pipeline_popmap.txt'
