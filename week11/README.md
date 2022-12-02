@@ -10,7 +10,7 @@
 > Tutorial on calculating pairwise Fst can be found here: https://devonderaad.github.io/phil.dicaeum.rad/calc.pairwise.fst.html
 
 ### ADMIXTURE
-
+> Tutorial on running ADMIXTURE using your filtered vcf file can be found here: https://devonderaad.github.io/phil.dicaeum.rad/run.admixture.html
 
 ### IQtree
 
