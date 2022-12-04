@@ -13,7 +13,7 @@
 > Tutorial on running ADMIXTURE using your filtered vcf file can be found here: https://devonderaad.github.io/phil.dicaeum.rad/run.admixture.html
 
 ### IQtree
-
+> Tutorial on using your filtered vcf file to generate a concatenated nexus file and run IQ-TREE2 on the KU cluster can be found here: https://devonderaad.github.io/phil.dicaeum.rad/run.admixture.html
 
 ### SNAPP
 
