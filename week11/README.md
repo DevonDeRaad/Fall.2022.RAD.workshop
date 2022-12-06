@@ -1,5 +1,8 @@
 # RAD genetic analysis tutorials
 
+### Make a sampling map for your system using R
+> tutorial can be found here: https://devonderaad.github.io/phil.dicaeum.rad/make.sampling.map.html
+
 ### PCA
 > PCA tutorial can be found here: https://devonderaad.github.io/phil.dicaeum.rad/make.pca.html
 
