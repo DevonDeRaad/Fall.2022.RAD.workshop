@@ -6,22 +6,22 @@ This repository will hold code and general information for how to analyze a RADs
 
 ```mermaid
 graph TD
-id1(Start) -- week 1 --> a[raw illumina data]
+id1(Start) -- week 1 --> a[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week1'>raw illumina data]
 style id1 fill:#6666FF,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
-a -- week 2 --> b[demultiplex]
-b -- week 3 --> c[fastqcR]
-c -- week 4 --> d[Stacks preliminary run with default parameters]
-d -- week 5 --> e[drop poor quality/contaminated samples]
-e -. reference aligned loci .-> f[quality filter with SNPfiltR]
+a -- week 2 --> b[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week2'>demultiplex]
+b -- week 3 --> c[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week3'>fastqcR]
+c -- week 4 --> d[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week4'>Stacks preliminary run with default parameters]
+d -- week 5 --> e[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week5'>drop poor quality/contaminated samples]
+e -. reference aligned loci .-> f[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week9'>quality filter with SNPfiltR]
 e -- de novo assembled loci --> g[de novo assembly parameter optimization]
-g -- week 6 --> h[optimize m]
-h -- week 7 --> i[optimize M]
-i -- week 8 --> j[optimize n]
+g -- week 6 --> h[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week6'>optimize m]
+h -- week 7 --> i[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week7'>optimize M]
+i -- week 8 --> j[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week8'>optimize n]
 j -- week 9 --> f
 f --> k[filtered SNP dataset]
-k -- week 10 --> p[write detailed methods section]
+k -- week 10 --> p[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week10'>write detailed methods section]
 p --> k
-k -- week 11 --> m[pop-gen analyses]
+k -- week 11 --> m[<a href='https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week11'>pop-gen analyses]
 linkStyle 5 stroke-width:2px,fill:none,color:red;
 linkStyle 6 stroke-width:2px,fill:none,color:red;
 click a "https://github.com/DevonDeRaad/Fall.2022.RAD.workshop/tree/main/week1" _blank
