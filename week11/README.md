@@ -19,6 +19,7 @@
 > Tutorial on using your filtered vcf file to generate a concatenated nexus file and run IQ-TREE2 on the KU cluster can be found here: https://devonderaad.github.io/phil.dicaeum.rad/run.iqtree.html
 
 ### SNAPP
-
+> Tutorial on converting your filtered vcf file to downsampled nexus files full of binary SNPs, convert that to an input .xml in beauti, and run SNAPP to calculate species trees on the KU cluster can be found here: https://devonderaad.github.io/phil.dicaeum.rad/run.snapp.html
 
 ### ABBA/BABA
+> Tutorial on using your filtered vcf file as input for Dsuite to calculate all ABBA/BABA combinations across the tree, using the KU cluster can be found here: https://devonderaad.github.io/phil.dicaeum.rad/run.dsuite.html
